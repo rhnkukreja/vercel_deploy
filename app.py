@@ -5,11 +5,13 @@ app = FastAPI()
 
 @app.post("/voice")
 async def voice(request: Request):
-    response = """
+    base_url = str(request.url)
+    handle_call_url = urljoin(base_url, '/handle_call')
+    response = f"""
     <Response>
         <Say>Welcome to your personal AI assistant.</Say>
         <Say>Please wait while I connect you to the AI assistant.</Say>
-        <Redirect>https://vercel_deploy.vercel.app/handle_call</Redirect>
+        <Redirect>{handle_call_url}</Redirect>
     </Response>
     """
     return PlainTextResponse(response, media_type="application/xml")
