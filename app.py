@@ -9,7 +9,7 @@ async def voice(request: Request):
     <Response>
         <Say>Welcome to your personal AI assistant.</Say>
         <Say>Please wait while I connect you to the AI assistant.</Say>
-        <Redirect>https://<your-vercel-app>.vercel.app/handle_call</Redirect>
+        <Redirect>https://vercel_deploy.vercel.app/handle_call</Redirect>
     </Response>
     """
     return PlainTextResponse(response, media_type="application/xml")
