@@ -1,5 +1,6 @@
 from fastapi import FastAPI, Request
 from fastapi.responses import PlainTextResponse
+from urllib.parse import urljoin
 
 app = FastAPI()
 
