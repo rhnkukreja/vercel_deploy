@@ -11,13 +11,10 @@ logging.basicConfig(level=logging.INFO)
 @app.get("/voice")
 async def voice(request: Request):
     logging.info(f"Received /voice request with headers: {request.headers} and body: {request.query_params}")
-    base_url = str(request.url)
-    handle_call_url = urljoin(base_url, '/handle_call')
-    response = f"""
+    response = """
     <Response>
         <Say>Welcome to your personal AI assistant.</Say>
         <Say>Please wait while I connect you to the AI assistant.</Say>
-        <Redirect>{handle_call_url}</Redirect>
     </Response>
     """
     logging.info(f"Responding with TwiML for /voice: {response}")
