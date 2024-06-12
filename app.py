@@ -8,9 +8,9 @@ app = FastAPI()
 # Configure logging
 logging.basicConfig(level=logging.INFO)
 
-@app.post("/voice")
+@app.get("/voice")
 async def voice(request: Request):
-    logging.info(f"Received /voice request with headers: {request.headers} and body: {await request.body()}")
+    logging.info(f"Received /voice request with headers: {request.headers} and body: {request.query_params}")
     base_url = str(request.url)
     handle_call_url = urljoin(base_url, '/handle_call')
     response = f"""
@@ -23,9 +23,9 @@ async def voice(request: Request):
     logging.info(f"Responding with TwiML for /voice: {response}")
     return PlainTextResponse(response, media_type="application/xml")
 
-@app.post("/handle_call")
+@app.get("/handle_call")
 async def handle_call(request: Request):
-    logging.info(f"Received /handle_call request with headers: {request.headers} and body: {await request.body()}")
+    logging.info(f"Received /handle_call request with headers: {request.headers} and body: {request.query_params}")
     # Here you integrate your AI bot logic
     ai_response = "This is your AI assistant speaking."
     response = f"""
