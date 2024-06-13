@@ -5,7 +5,7 @@ app = FastAPI()
 
 @app.get("/text_response")
 async def text_response(request: Request):
-    return PlainTextResponse("This is a plain text response from your FastAPI backend.")
+    return PlainTextResponse("This is a plain text response from your                                   FastAPI backend.")
 
 if __name__ == "__main__":
     import uvicorn
