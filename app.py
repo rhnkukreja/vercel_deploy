@@ -8,15 +8,19 @@ app = FastAPI()
 # Configure logging
 logging.basicConfig(level=logging.INFO)
 
-@app.get("/voiced")
+
+@app.get("/voice_text")
+async def voice_text(request: Request):
+    return PlainTextResponse("Welcome to your personal AI assistant. Please wait while I connect you to the AI assistant.")
+
+
+@app.get("/voice")
 async def voice(request: Request):
-    logging.info(f"Received /voice request with headers: {request.headers} and body: {request.query_params}")
-    response = """
+    return PlainTextResponse("""
         <Say>Welcome to your personal AI assistant.</Say>
         <Say>Please wait while I connect you to the AI assistant.</Say>
     """
-    logging.info(f"Responding with TwiML for /voice: {response}")
-    return PlainTextResponse(response, media_type="application/xml")
+, media_type="application/xml")
 
 @app.get("/handle_call")
 async def handle_call(request: Request):
