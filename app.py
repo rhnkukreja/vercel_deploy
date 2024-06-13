@@ -8,7 +8,7 @@ app = FastAPI()
 # Configure logging
 logging.basicConfig(level=logging.INFO)
 
-@app.get("/voice")
+@app.get("/voiced")
 async def voice(request: Request):
     logging.info(f"Received /voice request with headers: {request.headers} and body: {request.query_params}")
     response = """
