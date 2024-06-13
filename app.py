@@ -12,10 +12,8 @@ logging.basicConfig(level=logging.INFO)
 async def voice(request: Request):
     logging.info(f"Received /voice request with headers: {request.headers} and body: {request.query_params}")
     response = """
-    <Response>
         <Say>Welcome to your personal AI assistant.</Say>
         <Say>Please wait while I connect you to the AI assistant.</Say>
-    </Response>
     """
     logging.info(f"Responding with TwiML for /voice: {response}")
     return PlainTextResponse(response, media_type="application/xml")
