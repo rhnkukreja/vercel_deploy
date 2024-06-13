@@ -40,7 +40,7 @@ Have a good day!
     return PlainTextResponse(response, media_type="text/plain")
 
 @app.get("/passthru")
-async def passthru(next_step: int):
+async def passthru():
     time.sleep(5)  # Simulate a pause by sleeping for 5 seconds
     return PlainTextResponse(response, media_type="application/xml")
 
