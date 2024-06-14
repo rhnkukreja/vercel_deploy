@@ -42,7 +42,7 @@ Have a good day!
 @app.get("/passthru")
 async def passthru():
     time.sleep(5)  # Simulate a pause by sleeping for 5 seconds
-    response="  ."
+    response="  this is a pause"
     return PlainTextResponse(response, media_type="text/plain")
 
 if __name__ == "__main__":
