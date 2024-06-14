@@ -7,7 +7,7 @@ app = FastAPI()
 @app.get("/step1")
 async def step1():
     response = """
-Hello, how can I assist you today?
+Hello,....................................... how can I assist you today?
 """
     return PlainTextResponse(response, media_type="text/plain")
 
