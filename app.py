@@ -28,14 +28,21 @@ Yes, we do. The price is 4000 per night.
 @app.get("/step4")
 async def step4():
     response = """
-Anything else I can help you with?
+Okay, under what name shall i book the room ?
 """
     return PlainTextResponse(response, media_type="text/plain")
 
 @app.get("/step5")
+async def step4():
+    response = """
+Okay, a standard room under the name Rohan has been booked? Anything else I can help you with?
+"""
+    return PlainTextResponse(response, media_type="text/plain")
+
+@app.get("/step6")
 async def step5():
     response = """
-Have a good day!
+Have a good day! Bye ! 
 """
     return PlainTextResponse(response, media_type="text/plain")
 
