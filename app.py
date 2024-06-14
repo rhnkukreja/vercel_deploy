@@ -43,7 +43,7 @@ Have a good day!
 async def passthru():
     time.sleep(5)  # Simulate a pause by sleeping for 5 seconds
     response="  ."
-    return PlainTextResponse(response, media_type="application/xml")
+    return PlainTextResponse(response, media_type="text/plain")
 
 if __name__ == "__main__":
     import uvicorn
