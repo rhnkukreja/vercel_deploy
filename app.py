@@ -5,9 +5,13 @@ from pydantic import BaseModel
 from twilio.rest import Client
 import requests
 import uvicorn
+from dotenv import load_dotenv
 
 app = FastAPI()
 
+
+# Load environment variables from .env file for local development
+load_dotenv()
 
 account_sid = os.getenv('TWILIO_ACCOUNT_SID')
 auth_token = os.getenv('TWILIO_AUTH_TOKEN')
