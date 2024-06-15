@@ -15,7 +15,7 @@ account_sid = os.getenv('TWILIO_ACCOUNT_SID')
 auth_token = os.getenv('TWILIO_AUTH_TOKEN')
 client = Client(account_sid, auth_token)
 
-@app.post("/voice")
+@app.post("/voice_org")
 async def voice(request: Request):
     """Respond to incoming requests with a TwiML message"""
     resp = """
@@ -26,6 +26,17 @@ async def voice(request: Request):
     </Response>
     """
     return Response(content=resp, media_type="application/xml")
+
+@app.post("/voice")
+async def voice(request: Request):
+    """Respond to incoming requests with a TwiML message"""
+    resp = """
+    <Response>
+        <Say>Please leave a message after the beep. Press the star key when finished. Now the hell to do with this man ?</Say>
+    </Response>
+    """
+    return Response(content=resp, media_type="application/xml")
+
 
 @app.post("/handle-recording")
 async def handle_recording(RecordingUrl: str = Form(...)):
