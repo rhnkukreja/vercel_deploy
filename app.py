@@ -1,23 +1,19 @@
 import os
-from fastapi import FastAPI, Form
+from fastapi import FastAPI, Form, Request
 from fastapi.responses import Response
-from pydantic import BaseModel
 from twilio.rest import Client
 import requests
-import uvicorn
 from dotenv import load_dotenv
-
-app = FastAPI()
-
 
 # Load environment variables from .env file for local development
 load_dotenv()
 
+app = FastAPI()
+
+# Set environment variables for your credentials
 account_sid = os.getenv('TWILIO_ACCOUNT_SID')
 auth_token = os.getenv('TWILIO_AUTH_TOKEN')
 client = Client(account_sid, auth_token)
-
-
 
 @app.post("/voice")
 async def voice(request: Request):
