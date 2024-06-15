@@ -8,9 +8,9 @@ import uvicorn
 
 app = FastAPI()
 
-# Set environment variables for your credentials
-account_sid = "AC95de0ca1fc121a0b53b90902d5042e34"
-auth_token = "b04753efa80b88267a4d6c889ff7766b"
+
+account_sid = os.getenv('TWILIO_ACCOUNT_SID')
+auth_token = os.getenv('TWILIO_AUTH_TOKEN')
 client = Client(account_sid, auth_token)
 
 
