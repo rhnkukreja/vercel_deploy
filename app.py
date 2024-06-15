@@ -27,7 +27,7 @@ async def voice(request: Request):
     """
     return Response(content=resp, media_type="application/xml")
 
-@app.post("/voice")
+@app.get("/voice")
 async def voice(request: Request):
     """Respond to incoming requests with a TwiML message"""
     resp = """
